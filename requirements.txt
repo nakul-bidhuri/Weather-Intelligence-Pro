@@ -1,0 +1,10 @@
+streamlit
+requests
+pandas
+plotly
+scikit-learn
+xgboost
+folium
+streamlit-folium
+fpdf
+streamlit-lottie
