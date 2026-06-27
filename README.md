@@ -1,51 +1,23 @@
-## live demo 
-👉 https://nakulbidhuri-weather-intelligence-pro.streamlit.app/
- 
- 
- 
- # Weather-Intelligence-Pro
+# 🌦️ Weather Intelligence Pro
 
-\# Weather Intelligence Pro
+🚀 **Live Demo:**  
+https://nakulbidhuri-weather-intelligence-pro.streamlit.app/
 
+📂 **GitHub Repository:**  
+https://github.com/nakul-bidhuri/Weather-Intelligence-Pro
 
+---
 
-A professional weather dashboard built using Python, Streamlit, SQLite and OpenWeather API.
+## ✨ Features
 
+- 🌍 Worldwide weather search
+- 🌡️ Real-time temperature
+- 💧 Humidity and pressure
+- 💨 Wind speed
+- 📊 Interactive charts
+- 🗺️ Weather visualization
+- 💾 SQLite database
+- 📥 CSV export
+- 🎨 Modern Streamlit interface
 
-
-\## Features
-
-
-
-\* Live Weather
-
-\* AQI Monitoring
-
-\* Forecast
-
-\* Interactive Maps
-
-\* Weather Chatbot
-
-\* PDF Reports
-
-\* Analytics Dashboard
-
-\* Random Forest ML
-
-\* XGBoost ML
-
-\* Anomaly Detection
-
-
-
-\## Developer
-
-
-
-Nakul Bidhuri
-
-B.Tech Data Science Student
-
-
-
+---
