@@ -36,6 +36,31 @@ except Exception:
 
 st.set_page_config(page_title="Weather Intelligence Pro", page_icon="🌦️", layout="wide")
 
+st.markdown("""
+<style>
+
+/* Hide Streamlit Main Menu */
+#MainMenu {
+    visibility: hidden;
+}
+
+/* Hide header */
+header {
+    visibility: hidden;
+}
+
+/* Hide footer */
+footer {
+    visibility: hidden;
+}
+
+/* Hide Deploy button */
+[data-testid="stToolbar"] {
+    display: none;
+}
+
+</style>
+""", unsafe_allow_html=True)
 API_KEY = "29605a0bdb9126e27fa0e15c41a66ac7"
 
 st.markdown("""
@@ -47,9 +72,41 @@ st.markdown("""
         linear-gradient(135deg, #020617, #0f172a, #111827);
     color: white;
 }
+html, body, [data-testid="stAppViewContainer"] {
+    background: #020617;
+    color: white;
+}
 section[data-testid="stSidebar"] {
     background: linear-gradient(180deg, #020617, #0f172a);
     border-right: 1px solid rgba(255,255,255,0.13);
+}
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"] > div,
+.stMultiSelect div[data-baseweb="select"] > div,
+.stDateInput input {
+    background-color: rgba(15, 23, 42, 0.96) !important;
+    color: #e2e8f0 !important;
+    border-color: rgba(148, 163, 184, 0.35) !important;
+}
+.stSelectbox div[data-baseweb="select"] svg,
+.stMultiSelect div[data-baseweb="select"] svg {
+    fill: #e2e8f0 !important;
+}
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0.5rem;
+}
+.stTabs [data-baseweb="tab"] {
+    background: rgba(255,255,255,0.06);
+    color: #cbd5e1;
+    border-radius: 14px 14px 0 0;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+.stTabs [aria-selected="true"] {
+    background: rgba(56,189,248,0.18);
+    color: white;
+    border-color: rgba(56,189,248,0.45);
 }
 .hero {
     padding: 34px;
@@ -140,6 +197,269 @@ section[data-testid="stSidebar"] {
     border: 1px solid rgba(255,255,255,0.14);
     color: #dbeafe;
 }
+
+
+/* ================= PREMIUM APPLE / WINDOWS 11 DARK UI UPGRADE ================= */
+:root {
+    --bg-main: #020617;
+    --bg-card: rgba(15, 23, 42, 0.62);
+    --bg-card-strong: rgba(15, 23, 42, 0.86);
+    --border-soft: rgba(148, 163, 184, 0.22);
+    --border-glow: rgba(56, 189, 248, 0.45);
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --cyan: #38bdf8;
+    --purple: #8b5cf6;
+    --pink: #f472b6;
+}
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(56,189,248,0.18), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(139,92,246,0.18), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(244,114,182,0.10), transparent 34%);
+    z-index: 0;
+}
+
+.block-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 2.2rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1280px;
+}
+
+/* Premium glass hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    background:
+        linear-gradient(135deg, rgba(15,23,42,0.92), rgba(30,41,59,0.62)),
+        radial-gradient(circle at top right, rgba(56,189,248,0.25), transparent 30%) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,0.16), transparent 45%);
+    transform: translateX(-100%);
+    animation: shineMove 7s infinite;
+}
+.hero-title {
+    letter-spacing: -1.2px;
+    text-shadow: 0 0 35px rgba(56,189,248,0.20);
+}
+.hero-subtitle {
+    max-width: 850px;
+    line-height: 1.7;
+}
+
+/* Universal glass surface */
+.glass-card,
+.summary-box,
+.risk-box,
+.forecast-card,
+.weather-main-card,
+[data-testid="stMetric"],
+div[data-testid="stExpander"],
+.stDataFrame,
+.element-container iframe {
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.glass-card,
+.forecast-card,
+[data-testid="stMetric"] {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(15,23,42,0.76), rgba(30,41,59,0.46)) !important;
+    border: 1px solid var(--border-soft) !important;
+}
+.glass-card::before,
+.forecast-card::before,
+[data-testid="stMetric"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(56,189,248,0.55), rgba(139,92,246,0.20), rgba(244,114,182,0.28));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.45;
+    pointer-events: none;
+}
+.glass-card:hover,
+.forecast-card:hover,
+[data-testid="stMetric"]:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 24px 70px rgba(56,189,248,0.16), 0 18px 60px rgba(0,0,0,0.38) !important;
+}
+
+.card-label {
+    letter-spacing: .2px;
+    text-transform: uppercase;
+    font-size: 12px !important;
+    color: #93c5fd !important;
+}
+.card-value {
+    font-size: 34px !important;
+    letter-spacing: -0.8px;
+}
+
+/* Weather result card */
+.weather-main-card {
+    background:
+        linear-gradient(135deg, rgba(14,165,233,0.20), rgba(139,92,246,0.16)),
+        rgba(15,23,42,0.82) !important;
+    border: 1px solid rgba(125,211,252,0.28) !important;
+}
+.weather-temp {
+    margin-top: 16px;
+    background: linear-gradient(90deg, #7dd3fc, #c4b5fd, #f9a8d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Inputs */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"] > div,
+.stMultiSelect div[data-baseweb="select"] > div,
+.stDateInput input {
+    min-height: 48px;
+    border-radius: 16px !important;
+    background: rgba(2, 6, 23, 0.62) !important;
+    border: 1px solid rgba(148,163,184,0.28) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 12px 35px rgba(0,0,0,0.18);
+}
+.stTextInput input:focus,
+.stNumberInput input:focus,
+.stTextArea textarea:focus {
+    border-color: rgba(56,189,248,0.75) !important;
+    box-shadow: 0 0 0 3px rgba(56,189,248,0.16), 0 18px 45px rgba(0,0,0,0.28) !important;
+}
+
+/* Buttons */
+.stButton > button,
+.stDownloadButton > button {
+    min-height: 48px;
+    border-radius: 16px !important;
+    background: linear-gradient(100deg, #0ea5e9, #7c3aed, #db2777) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.16) !important;
+    box-shadow: 0 16px 45px rgba(14,165,233,0.22), inset 0 1px 0 rgba(255,255,255,0.18) !important;
+    transition: all .22s ease !important;
+}
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+    transform: translateY(-3px) scale(1.012) !important;
+    box-shadow: 0 24px 65px rgba(124,58,237,0.26), 0 10px 30px rgba(14,165,233,0.22) !important;
+    filter: brightness(1.08);
+}
+.stButton > button:active,
+.stDownloadButton > button:active {
+    transform: translateY(0) scale(.99) !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    backdrop-filter: blur(22px) saturate(145%);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    background:
+        linear-gradient(180deg, rgba(2,6,23,0.96), rgba(15,23,42,0.88)),
+        radial-gradient(circle at top, rgba(56,189,248,0.16), transparent 35%) !important;
+}
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] .stMarkdown {
+    color: #f8fafc !important;
+}
+section[data-testid="stSidebar"] [role="radiogroup"] label {
+    padding: 12px 14px;
+    margin: 7px 0;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all .2s ease;
+}
+section[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    background: rgba(56,189,248,0.13);
+    border-color: rgba(56,189,248,0.32);
+    transform: translateX(4px);
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    background: rgba(15,23,42,0.56);
+    border: 1px solid rgba(148,163,184,0.16);
+    padding: 8px;
+    border-radius: 18px;
+    backdrop-filter: blur(18px);
+}
+.stTabs [data-baseweb="tab"] {
+    border-radius: 14px !important;
+    padding: 10px 18px !important;
+}
+.stTabs [aria-selected="true"] {
+    box-shadow: 0 10px 28px rgba(56,189,248,0.16);
+}
+
+/* Alerts and info boxes */
+.stAlert {
+    border-radius: 18px !important;
+    background: rgba(15,23,42,0.72) !important;
+    border: 1px solid rgba(148,163,184,0.20) !important;
+    backdrop-filter: blur(16px);
+}
+
+/* Dataframes */
+[data-testid="stDataFrame"] {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(148,163,184,0.20);
+    box-shadow: 0 18px 55px rgba(0,0,0,0.25);
+}
+
+/* Sliders */
+.stSlider [data-baseweb="slider"] {
+    padding-top: 12px;
+}
+
+/* Footer */
+.footer {
+    margin-top: 36px;
+    padding: 18px 22px;
+    text-align: center;
+    color: #cbd5e1;
+    border-radius: 20px;
+    background: rgba(15,23,42,0.62);
+    border: 1px solid rgba(148,163,184,0.18);
+    backdrop-filter: blur(18px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #38bdf8, #8b5cf6);
+    border-radius: 999px;
+}
+
+@keyframes shineMove {
+    0% { transform: translateX(-120%); }
+    45%, 100% { transform: translateX(120%); }
+}
+
 @keyframes fadeUp { from {opacity: 0; transform: translateY(14px);} to {opacity: 1; transform: translateY(0);} }
 </style>
 """, unsafe_allow_html=True)
@@ -744,7 +1064,7 @@ if page == "🌦️ Dashboard":
         with tab2:
             st.subheader("🗺️ Interactive Weather Map")
             if FOLIUM_AVAILABLE:
-                m = folium.Map(location=[lat, lon], zoom_start=10)
+                m = folium.Map(location=[lat, lon], zoom_start=10, tiles="CartoDB dark_matter")
                 popup_text = f"""<b>{city}</b><br>Temp: {weather['temperature']} °C<br>Feels Like: {weather['feels_like']} °C<br>Humidity: {weather['humidity']}%<br>Wind: {weather['wind_speed']} m/s<br>AQI: {aqi if aqi else 'N/A'}<br>Condition: {weather['condition']}"""
                 folium.Marker([lat, lon], popup=popup_text, tooltip=city).add_to(m)
                 folium.Circle(location=[lat, lon], radius=4000, color="blue", fill=True, fill_opacity=0.15).add_to(m)
